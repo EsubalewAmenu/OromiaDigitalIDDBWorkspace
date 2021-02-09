@@ -1,0 +1,9 @@
+Bundle-Name: IdentificationDatabase-api
+Bundle-SymbolicName: IdentificationDatabase.api
+Bundle-Version: 1.1.0
+Export-Package:\
+	IdentificationDatabase.exception,\
+	IdentificationDatabase.model,\
+	IdentificationDatabase.service,\
+	IdentificationDatabase.service.persistence
+-includeresource: META-INF/service.xml=../IdentificationDatabase-service/service.xml

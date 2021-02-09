@@ -1,0 +1,490 @@
+<?xml version="1.1"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="IdentificationDatabase">
+	<namespace>ID</namespace>
+	<entity name="AddressLookup" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="code" type="String"></column>
+		<column name="organizationId" type="long" />
+		<column name="parentId" type="long" />
+		<column name="name" type="String" />
+		<column name="level" type="String" />
+		<column name="description" type="String" />
+		<column name="status" type="int"></column>
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="code" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+	<entity name="RegistrationCitizen" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="code" type="String"></column>
+		<column name="owner" type="boolean" />
+		<column name="city" type="String" />
+		<column name="subCity" type="String" />
+		<column name="kebele" type="String" />
+		<column name="houseNo" type="String" />
+		<column name="name" type="String" />
+		<column name="fatherName" type="String" />
+		<column name="grandfatherName" type="String" />
+		<column name="motherName" type="String" />
+		<column name="citizenship" type="String" />
+		<column name="nation" type="String" />
+		<column name="birthDate" type="Date" />
+		<column name="birthPlace" type="String" />
+		<column name="sex" type="String" />
+		<column name="occupation" type="String" />
+		<column name="telephone" type="String" />
+		<column name="relation" type="String" />
+		<column name="idType" type="String" />
+		<column name="issueDate" type="Date" />
+		<column name="expireDate" type="Date" />
+		<column name="emergencyContactName" type="String" />
+		<column name="emergencyContacPhone" type="String" />
+		<column name="image" type="String" />
+		<column name="signature" type="String" />
+		<column name="fingerprint" type="String" />
+		<column name="status" type="int"></column>
+		<column name="reciptNo" type="String" />
+		<column name="notice" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+		<finder name="code" return-type="Collection">
+			<finder-column name="code" />
+		</finder>
+		<finder name="reciptNo" return-type="Collection">
+			<finder-column name="reciptNo" />
+		</finder>
+		<finder name="id" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+		<finder return-type="Collection" name="houseNo">
+			<finder-column name="houseNo" />
+			<finder-column name="kebele" />
+		</finder>
+		
+		<finder return-type="Collection" name="report">
+			<finder-column name="issueDate" />
+			<finder-column name="kebele" />
+		</finder>
+
+		<finder return-type="Collection" name="issue_kebele_stat_report">
+			<finder-column name="issueDate" />
+			<finder-column name="kebele" />
+			<finder-column name="status" />
+		</finder>
+			
+		<finder return-type="Collection" name="issue_kebele_sex_stat_report">
+			<finder-column name="issueDate" />
+			<finder-column name="kebele" />
+			<finder-column name="sex" />
+			<finder-column name="status" />
+		</finder>
+			
+		<finder return-type="Collection" name="issue_kebele_occ_stat_report">
+			<finder-column name="issueDate" />
+			<finder-column name="kebele" />
+			<finder-column name="occupation" />
+			<finder-column name="status" />
+		</finder>
+			
+		<finder return-type="Collection" name="issue_kebele_sex_occ_stat_report">
+			<finder-column name="issueDate" />
+			<finder-column name="kebele" />
+			<finder-column name="sex" />
+			<finder-column name="occupation" />
+			<finder-column name="status" />
+		</finder>
+
+	</entity>
+	<entity name="CitizenRemark" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="citizenId" type="long"></column>
+		<column name="remark" type="String" />
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="citizenId" return-type="Collection">
+			<finder-column name="citizenId" />
+		</finder>
+		<finder name="id" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+	</entity>
+	<entity name="PrintedHistory" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="citizenId" type="long"></column>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="citizenId" return-type="Collection">
+			<finder-column name="citizenId" />
+		</finder>
+		<finder name="id" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+	</entity>
+	<entity name="TransferToOtherCity" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="tocity" type="String"></column>
+		<column name="fromcity" type="String"></column>
+		<column name="subcity" type="String"></column>
+		<column name="kebele" type="String"></column>
+		<column name="fullname" type="String"></column>
+		<column name="mothername" type="String"></column>
+		<column name="citizenId" type="long"></column>
+		<column name="birthdate" type="Date"></column>
+		<column name="houseNo" type="String"></column>
+		<column name="isOwner" type="String"></column>
+		<column name="phone" type="String"></column>
+		<column name="reason" type="String"></column>
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="citizenId" return-type="Collection">
+			<finder-column name="citizenId" />
+		</finder>
+		<finder name="id" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+	</entity>
+<entity name="CitizenFingerprintMatcher" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="citizenId" type="long"></column>
+		<column name="citizenIdSecond" type="long"></column>
+		<column name="score" type="int" />
+		<column name="status" type="int" />
+		<column name="userId" type="long" />
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+
+		<!-- Finder methods -->
+
+
+		<finder return-type="Collection" name="citizen_status">
+			<finder-column name="citizenId" />
+			<finder-column name="status" />
+		</finder>
+		<finder return-type="Collection" name="userid_status">
+			<finder-column name="userId" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="citizenId" return-type="Collection">
+			<finder-column name="citizenId" />
+		</finder>
+		<finder name="citizenIdSecond" return-type="Collection">
+			<finder-column name="citizenIdSecond" />
+		</finder>
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+		<finder name="userId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="id" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+
+	</entity>
+
+	<entity name="Settings" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="assignedUserId" type="long"></column>
+		<column name="organizationId" type="long" />
+		<column name="roleId" type="long" />
+		<column name="remark" type="String" />
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+	</entity>
+
+	<entity name="Services" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="citizenId" type="long" />
+		<column name="service" type="String" />
+		<column name="status" type="int" />
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="citizenId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+		<finder name="service" return-type="Collection">
+			<finder-column name="service" />
+		</finder>
+	</entity>
+
+	<entity name="BiometricData" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="citizenId" type="long" />
+		<column name="fingerType" type="String" />
+		<column name="fingerPrint" type="Blob" />
+		<column name="Remark" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="citizenId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="citizenId" return-type="Collection">
+			<finder-column name="citizenId" />
+		</finder>
+	</entity>	
+		<entity name="Kebeles" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="kebeleOr" type="String"></column>
+		<column name="kebeleAm" type="String" />
+		<column name="subcityOr" type="String" />
+		<column name="subcityAm" type="String" />
+		<column name="printername" type="String" />
+
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="kebeleOr" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="id" return-type="Collection">
+			<finder-column name="id" />
+		</finder>
+		<finder name="kebeleOr" return-type="Collection">
+			<finder-column name="kebeleOr" />
+		</finder>
+		<finder name="kebeleAm" return-type="Collection">
+			<finder-column name="kebeleAm" />
+		</finder>
+		<finder name="subcityOr" return-type="Collection">
+			<finder-column name="subcityOr" />
+		</finder>
+		<finder name="subcityAm" return-type="Collection">
+			<finder-column name="subcityAm" />
+		</finder>
+		<finder name="printername" return-type="Collection">
+			<finder-column name="printername" />
+		</finder>
+		
+		<finder return-type="Collection" name="kebsubcity">
+			<finder-column name="kebeleOr" />
+			<finder-column name="subcityOr" />
+		</finder>
+	</entity>
+</service-builder>

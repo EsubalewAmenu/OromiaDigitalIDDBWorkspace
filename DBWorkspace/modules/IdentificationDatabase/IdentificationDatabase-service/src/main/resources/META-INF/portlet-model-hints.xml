@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="IdentificationDatabase.model.AddressLookup">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="code" type="String" />
+		<field name="organizationId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="name" type="String" />
+		<field name="level" type="String" />
+		<field name="description" type="String" />
+		<field name="status" type="int" />
+	</model>
+	<model name="IdentificationDatabase.model.BiometricData">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="citizenId" type="long" />
+		<field name="fingerType" type="String" />
+		<field name="fingerPrint" type="Blob" />
+		<field name="Remark" type="String" />
+	</model>
+	<model name="IdentificationDatabase.model.CitizenFingerprintMatcher">
+		<field name="id" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="citizenId" type="long" />
+		<field name="citizenIdSecond" type="long" />
+		<field name="score" type="int" />
+		<field name="status" type="int" />
+		<field name="userId" type="long" />
+	</model>
+	<model name="IdentificationDatabase.model.CitizenRemark">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="citizenId" type="long" />
+		<field name="remark" type="String" />
+	</model>
+	<model name="IdentificationDatabase.model.Kebeles">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="kebeleOr" type="String" />
+		<field name="kebeleAm" type="String" />
+		<field name="subcityOr" type="String" />
+		<field name="subcityAm" type="String" />
+		<field name="printername" type="String" />
+	</model>
+	<model name="IdentificationDatabase.model.PrintedHistory">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="citizenId" type="long" />
+	</model>
+	<model name="IdentificationDatabase.model.RegistrationCitizen">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="code" type="String" />
+		<field name="owner" type="boolean" />
+		<field name="city" type="String" />
+		<field name="subCity" type="String" />
+		<field name="kebele" type="String" />
+		<field name="houseNo" type="String" />
+		<field name="name" type="String" />
+		<field name="fatherName" type="String" />
+		<field name="grandfatherName" type="String" />
+		<field name="motherName" type="String" />
+		<field name="citizenship" type="String" />
+		<field name="nation" type="String" />
+		<field name="birthDate" type="Date" />
+		<field name="birthPlace" type="String" />
+		<field name="sex" type="String" />
+		<field name="occupation" type="String" />
+		<field name="telephone" type="String" />
+		<field name="relation" type="String" />
+		<field name="idType" type="String" />
+		<field name="issueDate" type="Date" />
+		<field name="expireDate" type="Date" />
+		<field name="emergencyContactName" type="String" />
+		<field name="emergencyContacPhone" type="String" />
+		<field name="image" type="String" />
+		<field name="signature" type="String" />
+		<field name="fingerprint" type="String" />
+		<field name="status" type="int" />
+		<field name="reciptNo" type="String" />
+		<field name="notice" type="String" />
+	</model>
+	<model name="IdentificationDatabase.model.Services">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="citizenId" type="long" />
+		<field name="service" type="String" />
+		<field name="status" type="int" />
+	</model>
+	<model name="IdentificationDatabase.model.Settings">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="assignedUserId" type="long" />
+		<field name="organizationId" type="long" />
+		<field name="roleId" type="long" />
+		<field name="remark" type="String" />
+	</model>
+	<model name="IdentificationDatabase.model.TransferToOtherCity">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="tocity" type="String" />
+		<field name="fromcity" type="String" />
+		<field name="subcity" type="String" />
+		<field name="kebele" type="String" />
+		<field name="fullname" type="String" />
+		<field name="mothername" type="String" />
+		<field name="citizenId" type="long" />
+		<field name="birthdate" type="Date" />
+		<field name="houseNo" type="String" />
+		<field name="isOwner" type="String" />
+		<field name="phone" type="String" />
+		<field name="reason" type="String" />
+	</model>
+</model-hints>

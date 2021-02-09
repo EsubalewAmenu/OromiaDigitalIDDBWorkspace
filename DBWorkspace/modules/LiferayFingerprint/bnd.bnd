@@ -1,0 +1,4 @@
+Bundle-Name: LiferayFingerprint
+Bundle-SymbolicName: LiferayFingerprint
+Bundle-Version: 1.0.0
+Export-Package: LiferayFingerprint.constants}

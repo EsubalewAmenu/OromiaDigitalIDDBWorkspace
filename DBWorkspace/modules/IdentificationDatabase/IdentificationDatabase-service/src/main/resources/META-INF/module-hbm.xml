@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="IdentificationDatabase.model.AddressLookup" />
+	<import class="IdentificationDatabase.model.BiometricData" />
+	<import class="IdentificationDatabase.model.CitizenFingerprintMatcher" />
+	<import class="IdentificationDatabase.model.CitizenRemark" />
+	<import class="IdentificationDatabase.model.Kebeles" />
+	<import class="IdentificationDatabase.model.PrintedHistory" />
+	<import class="IdentificationDatabase.model.RegistrationCitizen" />
+	<import class="IdentificationDatabase.model.Services" />
+	<import class="IdentificationDatabase.model.Settings" />
+	<import class="IdentificationDatabase.model.TransferToOtherCity" />
+	<class name="IdentificationDatabase.model.impl.AddressLookupImpl" table="ID_AddressLookup">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property column="code_" name="code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="organizationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="level" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.BiometricDataImpl" table="ID_BiometricData">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="citizenId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fingerType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="IdentificationDatabase.model.BiometricDataFingerPrintBlobModel" constrained="true" name="fingerPrintBlobModel" outer-join="false" />
+		<property name="Remark" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class lazy="true" name="IdentificationDatabase.model.BiometricDataFingerPrintBlobModel" table="ID_BiometricData">
+		<id column="id_" name="id">
+			<generator class="foreign">
+				<param name="property">IdentificationDatabase.model.impl.BiometricDataImpl</param>
+			</generator>
+		</id>
+		<property column="fingerPrint" name="fingerPrintBlob" type="blob" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.CitizenFingerprintMatcherImpl" table="ID_CitizenFingerprintMatcher">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="citizenId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="citizenIdSecond" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="score" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.CitizenRemarkImpl" table="ID_CitizenRemark">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="citizenId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="remark" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.KebelesImpl" table="ID_Kebeles">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="kebeleOr" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="kebeleAm" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="subcityOr" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="subcityAm" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="printername" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.PrintedHistoryImpl" table="ID_PrintedHistory">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="citizenId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.RegistrationCitizenImpl" table="ID_RegistrationCitizen">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property column="code_" name="code" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="owner" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="city" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="subCity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="kebele" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="houseNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fatherName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="grandfatherName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="motherName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="citizenship" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nation" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="birthDate" type="org.hibernate.type.TimestampType" />
+		<property name="birthPlace" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sex" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="occupation" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telephone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="relation" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="idType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="issueDate" type="org.hibernate.type.TimestampType" />
+		<property name="expireDate" type="org.hibernate.type.TimestampType" />
+		<property name="emergencyContactName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="emergencyContacPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="image" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="signature" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fingerprint" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="reciptNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="notice" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.ServicesImpl" table="ID_Services">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="citizenId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="service" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.SettingsImpl" table="ID_Settings">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="assignedUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="organizationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="roleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="remark" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="IdentificationDatabase.model.impl.TransferToOtherCityImpl" table="ID_TransferToOtherCity">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="tocity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fromcity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="subcity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="kebele" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fullname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="mothername" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="citizenId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="birthdate" type="org.hibernate.type.TimestampType" />
+		<property name="houseNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="isOwner" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="phone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="reason" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

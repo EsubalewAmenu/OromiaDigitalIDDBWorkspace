@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="IdentificationDatabase.service.impl.AddressLookupLocalServiceImpl" id="IdentificationDatabase.service.AddressLookupLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.AddressLookupPersistenceImpl" id="IdentificationDatabase.service.persistence.AddressLookupPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.BiometricDataLocalServiceImpl" id="IdentificationDatabase.service.BiometricDataLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.BiometricDataPersistenceImpl" id="IdentificationDatabase.service.persistence.BiometricDataPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.CitizenFingerprintMatcherLocalServiceImpl" id="IdentificationDatabase.service.CitizenFingerprintMatcherLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.CitizenFingerprintMatcherPersistenceImpl" id="IdentificationDatabase.service.persistence.CitizenFingerprintMatcherPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.CitizenRemarkLocalServiceImpl" id="IdentificationDatabase.service.CitizenRemarkLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.CitizenRemarkPersistenceImpl" id="IdentificationDatabase.service.persistence.CitizenRemarkPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.KebelesLocalServiceImpl" id="IdentificationDatabase.service.KebelesLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.KebelesPersistenceImpl" id="IdentificationDatabase.service.persistence.KebelesPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.PrintedHistoryLocalServiceImpl" id="IdentificationDatabase.service.PrintedHistoryLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.PrintedHistoryPersistenceImpl" id="IdentificationDatabase.service.persistence.PrintedHistoryPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.RegistrationCitizenLocalServiceImpl" id="IdentificationDatabase.service.RegistrationCitizenLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.RegistrationCitizenPersistenceImpl" id="IdentificationDatabase.service.persistence.RegistrationCitizenPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.ServicesLocalServiceImpl" id="IdentificationDatabase.service.ServicesLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.ServicesPersistenceImpl" id="IdentificationDatabase.service.persistence.ServicesPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.SettingsLocalServiceImpl" id="IdentificationDatabase.service.SettingsLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.SettingsPersistenceImpl" id="IdentificationDatabase.service.persistence.SettingsPersistence" parent="basePersistence" />
+	<bean class="IdentificationDatabase.service.impl.TransferToOtherCityLocalServiceImpl" id="IdentificationDatabase.service.TransferToOtherCityLocalService" />
+	<bean class="IdentificationDatabase.service.persistence.impl.TransferToOtherCityPersistenceImpl" id="IdentificationDatabase.service.persistence.TransferToOtherCityPersistence" parent="basePersistence" />
+</beans>
